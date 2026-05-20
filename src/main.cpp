@@ -2,6 +2,7 @@
 #include <opencv2/opencv.hpp>
 
 #include <chrono>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
@@ -27,6 +28,11 @@ const std::vector<CameraBackend> kCameraBackends = {
     {cv::CAP_MSMF, "Media Foundation"},
     {cv::CAP_ANY, "Auto"}
 };
+
+void logLine(const std::string& text) {
+    std::ofstream log("camera_win.log", std::ios::app);
+    log << text << '\n';
+}
 
 std::string makeStatusText(double fps, const cv::Size& size, bool motionEnabled, double motionRatio) {
     std::ostringstream out;
@@ -127,6 +133,7 @@ bool openCamera(cv::VideoCapture& camera, const AppConfig& config, std::string& 
 }  // namespace
 
 int main(int argc, char** argv) {
+    logLine("camera_win start");
     AppConfig config;
     if (argc > 1) {
         config.cameraIndex = std::stoi(argv[1]);
@@ -135,10 +142,12 @@ int main(int argc, char** argv) {
     cv::VideoCapture camera;
     std::string backendName;
     if (!openCamera(camera, config, backendName)) {
+        logLine("failed to open camera");
         std::cerr << "Failed to open camera index " << config.cameraIndex << ".\n";
         std::cerr << "Try another index, for example: camera_win.exe 1\n";
         return 1;
     }
+    logLine("camera opened with " + backendName);
 
     printHelp();
     std::cout << "Format: MJPG  requested size: " << config.width << "x" << config.height
