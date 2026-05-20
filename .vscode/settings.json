@@ -1,0 +1,19 @@
+{
+  "cmake.configureOnOpen": false,
+  "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+  "cmake.buildType": "Debug",
+  "cmake.useCMakePresets": "always",
+  "C_Cpp.default.configurationProvider": "",
+  "C_Cpp.default.compileCommands": "",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "C:/dev/vcpkg/installed/x64-windows/include/opencv4",
+    "${env:VCPKG_ROOT}/installed/x64-windows/include/opencv4",
+    "${env:VCPKG_ROOT}/installed/x64-windows/include",
+    "C:/dev/vcpkg/installed/x64-windows/include",
+    "C:/vcpkg/installed/x64-windows/include",
+    "C:/opencv/build/include"
+  ],
+  "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
+  "C_Cpp.errorSquiggles": "enabled"
+}

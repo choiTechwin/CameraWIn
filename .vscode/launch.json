@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug camera_win",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Debug/Debug/camera_win.exe",
+      "args": ["0"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [
+        {
+          "name": "PATH",
+          "value": "C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
+        }
+      ],
+      "console": "integratedTerminal",
+      "preLaunchTask": "CMake Build Debug",
+      "symbolSearchPath": "${workspaceFolder}/build/Debug/Debug",
+      "logging": {
+        "engineLogging": true,
+        "trace": true,
+        "traceResponse": false
+      }
+    },
+    {
+      "name": "Release camera_win",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Release/Release/camera_win.exe",
+      "args": ["0"],
+      "noDebug": true,
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [
+        {
+          "name": "PATH",
+          "value": "C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
+        }
+      ],
+      "console": "integratedTerminal",
+      "preLaunchTask": "CMake Build Release"
+    }
+  ]
+}

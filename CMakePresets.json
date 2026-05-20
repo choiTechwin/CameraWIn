@@ -1,0 +1,71 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "vs2022-debug",
+      "displayName": "Visual Studio 2022 Debug",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/Debug",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug"
+      }
+    },
+    {
+      "name": "vs2022-release",
+      "displayName": "Visual Studio 2022 Release",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/Release",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Release"
+      }
+    },
+    {
+      "name": "vs2022-debug-vcpkg",
+      "displayName": "Visual Studio 2022 Debug + vcpkg",
+      "inherits": "vs2022-debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "OpenCV_DIR": "C:/dev/vcpkg/installed/x64-windows/share/opencv4",
+        "CMAKE_PREFIX_PATH": "C:/dev/vcpkg/installed/x64-windows"
+      }
+    },
+    {
+      "name": "vs2022-release-vcpkg",
+      "displayName": "Visual Studio 2022 Release + vcpkg",
+      "inherits": "vs2022-release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "OpenCV_DIR": "C:/dev/vcpkg/installed/x64-windows/share/opencv4",
+        "CMAKE_PREFIX_PATH": "C:/dev/vcpkg/installed/x64-windows"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "configurePreset": "vs2022-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "configurePreset": "vs2022-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "debug-vcpkg",
+      "displayName": "Debug with vcpkg",
+      "configurePreset": "vs2022-debug-vcpkg",
+      "configuration": "Debug"
+    },
+    {
+      "name": "release-vcpkg",
+      "displayName": "Release with vcpkg",
+      "configurePreset": "vs2022-release-vcpkg",
+      "configuration": "Release"
+    }
+  ]
+}

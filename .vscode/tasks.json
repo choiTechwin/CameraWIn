@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake Configure Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--preset",
+        "vs2022-debug-vcpkg"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake Build Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "debug-vcpkg"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "CMake Configure Debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$msCompile"
+      ]
+    },
+    {
+      "label": "Run Debug",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/Debug/Debug/camera_win.exe",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
+        }
+      },
+      "dependsOn": [
+        "CMake Build Debug"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake Configure Release",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--preset",
+        "vs2022-release-vcpkg"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake Build Release",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "release-vcpkg"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "CMake Configure Release"
+      ],
+      "problemMatcher": [
+        "$msCompile"
+      ]
+    },
+    {
+      "label": "Run Release",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/Release/Release/camera_win.exe",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
+        }
+      },
+      "dependsOn": [
+        "CMake Build Release"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

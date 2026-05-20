@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "C:/dev/vcpkg/installed/x64-windows/include/opencv4",
+        "${env:VCPKG_ROOT}/installed/x64-windows/include/opencv4",
+        "${env:VCPKG_ROOT}/installed/x64-windows/include",
+        "C:/dev/vcpkg/installed/x64-windows/include",
+        "C:/vcpkg/installed/x64-windows/include",
+        "C:/opencv/build/include"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "windowsSdkVersion": "10.0",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-msvc-x64"
+    }
+  ],
+  "version": 4
+}
