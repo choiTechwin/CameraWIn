@@ -44,7 +44,7 @@
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {
-          "PATH": "C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
+          "PATH": "C:\\dev\\vcpkg\\installed\\x64-windows\\debug\\bin;C:\\dev\\vcpkg\\installed\\x64-windows\\bin;${env:PATH}"
         }
       },
       "dependsOn": [
